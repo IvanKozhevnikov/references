@@ -1,4 +1,4 @@
-FROM maven:3.6.3-openjdk:21 AS build
+FROM maven:3.6.3-jdk-21
 RUN mkdir references
 WORKDIR references
 COPY . .
