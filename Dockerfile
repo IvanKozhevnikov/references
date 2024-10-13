@@ -1,4 +1,4 @@
-FROM maven:3.6.3-jdk-21
+FROM eclipse-temurin:21-jdk
 RUN mkdir references
 WORKDIR references
 COPY . .
