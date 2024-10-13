@@ -7,6 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import ru.demo.references.model.Employee;
 import ru.demo.references.service.EmployeeService;
+import ru.demo.references.service.ReferenceService;
 
 @Controller
 @AllArgsConstructor
@@ -14,6 +15,8 @@ import ru.demo.references.service.EmployeeService;
 public class EmployeeController {
 
     private final EmployeeService employeeService;
+
+    private final ReferenceService referenceService;
 
     //private final AccidentTypeService accidentTypeService;
 
@@ -29,7 +32,7 @@ public class EmployeeController {
 
     @PostMapping("/saveEmployee")
     public String save(@ModelAttribute Employee employee, Model model, HttpServletRequest httpServletRequest) {
-        String[] ids = httpServletRequest.getParameterValues("rIds");
+        //String[] ids = httpServletRequest.getParameterValues("rIds");
         //employee.setRules(ruleService.findByIds(ids));
         employeeService.create(employee);
         model.addAttribute("message");
@@ -44,7 +47,7 @@ public class EmployeeController {
             return "errors/404";
         }
         model.addAttribute("employee", employeeService.findById(id).get());
-        //model.addAttribute("types", accidentTypeService.findAll());
+        model.addAttribute("types", referenceService.findAll());
         //model.addAttribute("rules", ruleService.findAll());
         return "employees/updateEmployee";
     }

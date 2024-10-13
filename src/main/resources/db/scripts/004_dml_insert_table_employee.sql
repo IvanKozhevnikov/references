@@ -1,2 +1,2 @@
-insert into employee (fullName, profession, department, note)
-values ('Михаил Сергеевич Леонтьев', 'Экономист', 'МТО', 'Опыт 10 лет');
+insert into employee (fullName, department, note, employee_references_id)
+values ('Михаил Сергеевич Леонтьев', 'МТО', 'Опыт 10 лет', 1);

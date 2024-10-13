@@ -14,7 +14,7 @@
             integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V"
             crossorigin="anonymous"></script>
 
-    <title>Список сотрудников</title>
+    <title>Список отделов</title>
 </head>
 <body>
 <div class="container-fluid p-0">
@@ -25,30 +25,35 @@
                 <thead>
                 <tr>
                     <th scope="col">№</th>
-                    <th scope="col">ФИО</th>
-                    <th scope="col">Профессия</th>
                     <th scope="col">Отдел</th>
-                    <th scope="col">Описание</th>
+                    <th scope="col">Информация об отделе</th>
+                    <th scope="col">Родительский отдел</th>
+                    <th scope="col"> </th>
                     <th scope="col"> </th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr th:each="employee: ${employees}">
-                    <td th:text="${employee.id}"/>
-                    <td th:text="${employee.fullName}"/>
-                    <td th:text="${employee.profession.name}"/>
-                    <td th:text="${employee.department}"/>
-                    <td th:text="${employee.note}"/>
+                <tr th:each="department: ${departments}">
+                    <td th:text="${department.id}"/>
+                    <td th:text="${department.name}"/>
+                    <td th:text="${department.note}"/>
+                    <td th:text="${department.parentDepartment}"/>
                     <td>
-                        <a th:href="@{|/employees/formUpdateEmployee?id=${employee.id}|}">
+                        <a th:href="@{|/departments/formUpdateDepartment?id=${department.id}|}">
                             <i th:text="Изменить" class="fa fa-edit"></i>
                         </a>
                     </td>
+                    <td>
+                        <form th:action="@{|/departments/deleteDepartment?id=${department.id}|}" method="post" style="display:inline;">
+                            <button type="submit" class="btn btn-danger" onclick="return confirm('Вы уверены, что хотите удалить этот элемент?');">
+                                <i class="fa fa-trash"></i> Удалить
+                            </button>
+                        </form>
                 </tr>
                 </tbody>
             </table>
             <div class="row">
-                <div class="col-4"><a class="btn btn-success w-100" th:href="@{/employees/createEmployee}">Создать анкету сотрудника</a>
+                <div class="col-4"><a class="btn btn-success w-100" th:href="@{/departments/createDepartment}">Создать отдел</a>
                 </div>
             </div>
         </div>

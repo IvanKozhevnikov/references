@@ -18,7 +18,9 @@ public class Employee {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String fullName;
-    private String profession;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "employee_references_id")
+    private Reference profession;
     private String department;
     private String note;
 }
