@@ -10,6 +10,8 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Properties;
 
+
+
 @SpringBootApplication()
 public class Main {
 
@@ -41,7 +43,21 @@ public class Main {
     }
 
     public static void main(String[] args) throws SQLException, ClassNotFoundException {
+        /**      try (Connection connection = loadConnection()) {
 
+         PreparedStatement preparedStatement = connection
+         .prepareStatement("select * from cities");
+
+         ResultSet resultSet = preparedStatement.executeQuery();
+         while (resultSet.next()) {
+         int id = resultSet.getInt("id");
+         String name = resultSet.getString("name");
+
+         System.out.println("id: " + id);
+         System.out.println("Name: " + name);
+         System.out.println("\n============================\n");
+         }
+         }*/
         SpringApplication.run(Main.class, args);
     }
 }
