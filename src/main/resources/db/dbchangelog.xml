@@ -8,8 +8,8 @@
 <include file="001_ddl_create_table_reference.sql" relativeToChangelogFile="true"/>
     <include file="002_ddl_create_table_department.sql" relativeToChangelogFile="true"/>
     <include file="003_ddl_create_table_employee.sql" relativeToChangelogFile="true"/>
-    <include file="004_dml_insert_table_employee.sql" relativeToChangelogFile="true"/>
-    <include file="005_dml_insert_table_department.sql" relativeToChangelogFile="true"/>
-    <include file="006_dml_insert_table_reference.sql" relativeToChangelogFile="true"/>
+    <include file="004_dml_insert_table_department.sql" relativeToChangelogFile="true"/>
+    <include file="005_dml_insert_table_reference.sql" relativeToChangelogFile="true"/>
+    <include file="006_dml_insert_table_employee.sql" relativeToChangelogFile="true"/>
     <include file="007_security_scheme.sql" relativeToChangelogFile="true"/>
 </databaseChangeLog>

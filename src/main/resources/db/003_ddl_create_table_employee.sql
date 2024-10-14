@@ -3,5 +3,5 @@ create table employee(
     fullName text not null,
     department text not null,
     note varchar,
-    employee_references_id int not null references reference (id)
+    employee_references_id int references reference (id)
 );
