@@ -5,9 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.Properties;
 
 
@@ -31,10 +29,10 @@ public class Main {
         } catch (IOException e) {
             throw new IllegalStateException(e);
         }
-        String url = loadSysEnvIfNullThenConfig("JDBC_URL", "url", config);
-        String username = loadSysEnvIfNullThenConfig("JDBC_USERNAME", "username", config);
-        String password = loadSysEnvIfNullThenConfig("JDBC_PASSWORD", "1234", config);
-        String driver = loadSysEnvIfNullThenConfig("JDBC_DRIVER", "driver-class-name", config);
+        String url = loadSysEnvIfNullThenConfig("JDBC_URL", "spring.datasource.url", config);
+        String username = loadSysEnvIfNullThenConfig("JDBC_USERNAME", "spring.datasource.username", config);
+        String password = loadSysEnvIfNullThenConfig("JDBC_PASSWORD", "spring.datasource.password", config);
+        String driver = loadSysEnvIfNullThenConfig("JDBC_DRIVER", "spring.datasource.driver-class-name", config);
         System.out.println("url=" + url);
         Class.forName(driver);
         return DriverManager.getConnection(
@@ -43,21 +41,21 @@ public class Main {
     }
 
     public static void main(String[] args) throws SQLException, ClassNotFoundException {
-        /**      try (Connection connection = loadConnection()) {
+              try (Connection connection = loadConnection()) {
 
          PreparedStatement preparedStatement = connection
-         .prepareStatement("select * from cities");
+         .prepareStatement("select * from employee");
 
          ResultSet resultSet = preparedStatement.executeQuery();
          while (resultSet.next()) {
          int id = resultSet.getInt("id");
-         String name = resultSet.getString("name");
+         String name = resultSet.getString("fullName");
 
          System.out.println("id: " + id);
          System.out.println("Name: " + name);
          System.out.println("\n============================\n");
          }
-         }*/
+         }
         SpringApplication.run(Main.class, args);
     }
 }

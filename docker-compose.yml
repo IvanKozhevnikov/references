@@ -6,7 +6,7 @@ services:
     environment:
       - POSTGRES_PASSWORD=1234
       - POSTGRES_USER=postgres
-      - POSTGRES_DB=dreamjob
+      - POSTGRES_DB=references
       - PGDATA=/var/lib/postgresql/data
     volumes:
       - ./db/shortcut/data:/var/lib/postgresql/data
