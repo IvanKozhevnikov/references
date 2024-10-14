@@ -2,14 +2,11 @@ package ru.demo.references.controller;
 
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.AllArgsConstructor;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import ru.demo.references.model.Department;
-import ru.demo.references.model.Employee;
 import ru.demo.references.service.DepartmentService;
-import ru.demo.references.service.EmployeeService;
 
 @Controller
 @AllArgsConstructor

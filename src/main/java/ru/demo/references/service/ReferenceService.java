@@ -2,7 +2,6 @@ package ru.demo.references.service;
 
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
-import ru.demo.references.model.Department;
 import ru.demo.references.model.Reference;
 import ru.demo.references.repository.ReferenceRepository;
 
