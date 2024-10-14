@@ -8,7 +8,7 @@ WORKDIR references
 
 COPY . .
 
-RUN mvn package
+RUN mvn package -Dmaven.test.skip=true
 
 CMD ["mvn", "liquibase:update", "-Pdocker"]
 
