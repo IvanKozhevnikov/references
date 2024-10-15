@@ -2,9 +2,9 @@ FROM  maven:3.9.9-eclipse-temurin-21
 
 EXPOSE 8080
 
-RUN mkdir references
+RUN mkdir references_test
 
-WORKDIR references
+WORKDIR references_test
 
 COPY . .
 
