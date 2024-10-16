@@ -1,7 +1,7 @@
 version: "3.9"
 services:
   db:
-    image: postgres
+    image: references
     container_name: db
     environment:
       - POSTGRES_PASSWORD=1234
