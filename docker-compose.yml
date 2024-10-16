@@ -12,7 +12,6 @@ services:
       - ./db/shortcut/data:/var/lib/postgresql/data
     restart: always
   references:
-    network_mode: host
     build:
       context: .
       dockerfile: Dockerfile
