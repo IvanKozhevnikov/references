@@ -1,4 +1,3 @@
-version: "3.9"
 services:
   db:
     image: postgres
@@ -12,6 +11,7 @@ services:
       - ./db/shortcut/data:/var/lib/postgresql/data
     restart: always
   references:
+    network_mode: host
     build:
       context: .
       dockerfile: Dockerfile
@@ -20,6 +20,8 @@ services:
       - JDBC_USERNAME=postgres
       - JDBC_PASSWORD=1234
       - JDBC_DRIVER=org.postgresql.Driver
+    ports:
+      - "127.0.0.1:8080:8080"
     container_name: references
     depends_on:
       - db
