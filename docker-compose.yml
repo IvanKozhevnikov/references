@@ -20,8 +20,6 @@ services:
       - JDBC_USERNAME=postgres
       - JDBC_PASSWORD=1234
       - JDBC_DRIVER=org.postgresql.Driver
-    ports:
-      - "127.0.0.1:8080:8080"
     container_name: references
     depends_on:
       - db
