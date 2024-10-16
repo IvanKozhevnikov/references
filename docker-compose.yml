@@ -1,7 +1,7 @@
 version: "3.9"
 services:
   db:
-    image: references
+    image: postgres
     container_name: db
     environment:
       - POSTGRES_PASSWORD=1234
@@ -12,6 +12,7 @@ services:
       - ./db/shortcut/data:/var/lib/postgresql/data
     restart: always
   references:
+    network_mode: host
     build:
       context: .
       dockerfile: Dockerfile
