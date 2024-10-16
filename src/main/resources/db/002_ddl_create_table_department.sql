@@ -1,6 +1,6 @@
 create table department(
     id serial primary key,
-    name text not null,
+    name text,
     note varchar,
     parent_department text
 );

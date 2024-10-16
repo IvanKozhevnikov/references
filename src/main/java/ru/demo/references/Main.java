@@ -44,7 +44,7 @@ public class Main {
               try (Connection connection = loadConnection()) {
 
          PreparedStatement preparedStatement = connection
-         .prepareStatement("select * from employee");
+         .prepareStatement("select * from employee;");
 
          ResultSet resultSet = preparedStatement.executeQuery();
          while (resultSet.next()) {
